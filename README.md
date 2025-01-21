@@ -1,5 +1,7 @@
 # react-native-pure-data
 
+## TODO: Fix /src to /dist @ package.json
+
 <p align="center">
   <img
     src="./public/logo.png"
@@ -31,7 +33,6 @@ And remember,
 
 > With great power, comes great responsibility.
 > [- Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds)
-
 
 ## 🚀 Getting Started
 
@@ -83,7 +84,17 @@ react-native run-ios
 
 #### 3.2 Android
 
-Android is not yet supported, but will be released **this weekend**.
+[**Blocked.**](https://github.com/libpd/pd-for-android/issues/104)
+
+Please ensure that the `minSdkVersion` of your project is `17`:
+
+**android/app/build.gradle**
+
+```diff
+- minSdkVersion = 16
++ minSdkVersion = 17
+```
+After this, make sure you've [**installed the `Android NDK (Side-by-side)`**](https://developer.android.com/studio/projects/install-ndk) to [**Android Studio**](https://developer.android.com/studio). Finally, reinstall your application using `react-native run-android`.
 
 ## ✍️ Example
 
@@ -145,7 +156,6 @@ export default () => {
 ```
 
 In the example above, a random frequency will be calculated and transmitted to the corresponding receiver on the diagram. In this case, the receiver would be called "nextFrequency", which would be declared using a Pure Data [**Object**](https://puredata.info/docs/ListOfPdExternals) with the definition `[r nextFrequency]`:
-
 
 <p align="center">
   <img
